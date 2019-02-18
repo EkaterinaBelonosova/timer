@@ -1,8 +1,8 @@
 let deadline = '2019-02-19';
 
-    function getTimeRemaining(endtime){ //узнаем промежуток времени м/у дедлайн и текущей датой
-        let t = Date.parse(endtime) - Date.parse(new Date()), //получение миллисекунд от конечной даты и текущей
-            seconds = Math.floor((t/1000) % 60),  // перевод из миллисекунд в секунды
+    function getTimeRemaining(endtime){ //ГіГ§Г­Г ГҐГ¬ ГЇГ°Г®Г¬ГҐГ¦ГіГІГ®ГЄ ГўГ°ГҐГ¬ГҐГ­ГЁ Г¬/Гі Г¤ГҐГ¤Г«Г Г©Г­ ГЁ ГІГҐГЄГіГ№ГҐГ© Г¤Г ГІГ®Г©
+        let t = Date.parse(endtime) - Date.parse(new Date()), //ГЇГ®Г«ГіГ·ГҐГ­ГЁГҐ Г¬ГЁГ«Г«ГЁГ±ГҐГЄГіГ­Г¤ Г®ГІ ГЄГ®Г­ГҐГ·Г­Г®Г© Г¤Г ГІГ» ГЁ ГІГҐГЄГіГ№ГҐГ©
+            seconds = Math.floor((t/1000) % 60),  // ГЇГҐГ°ГҐГўГ®Г¤ ГЁГ§ Г¬ГЁГ«Г«ГЁГ±ГҐГЄГіГ­Г¤ Гў Г±ГҐГЄГіГ­Г¤Г»
             minutes = Math.floor((t/1000/60) % 60),
             hours = Math.floor((t/(1000*60*60)));
             
@@ -16,14 +16,14 @@ let deadline = '2019-02-19';
 
     }
         
-    function setClock(id, endtime){ // функция создает различные переменные(берет со страницы)
+    function setClock(id, endtime){ // ГґГіГ­ГЄГ¶ГЁГї Г±Г®Г§Г¤Г ГҐГІ Г°Г Г§Г«ГЁГ·Г­Г»ГҐ ГЇГҐГ°ГҐГ¬ГҐГ­Г­Г»ГҐ(ГЎГҐГ°ГҐГІ Г±Г® Г±ГІГ°Г Г­ГЁГ¶Г»)
         let timer = document.getElementById(id),
             hours = timer.querySelector('.hours'),
             minutes = timer.querySelector('.minutes'),
             seconds = timer.querySelector('.seconds'),
             timeInterval = setInterval(updateClock, 1000);
         
-        function updateClock() {  //получает разницу во времени и записываем данные
+        function updateClock() {  //ГЇГ®Г«ГіГ·Г ГҐГІ Г°Г Г§Г­ГЁГ¶Гі ГўГ® ГўГ°ГҐГ¬ГҐГ­ГЁ ГЁ Г§Г ГЇГЁГ±Г»ГўГ ГҐГ¬ Г¤Г Г­Г­Г»ГҐ
             let t = getTimeRemaining(endtime);
             if(t.hours<10){
                 hours.textContent = '0'+t.hours;             
@@ -56,5 +56,3 @@ let deadline = '2019-02-19';
     }    
 
     setClock('timer', deadline);
-
-});
